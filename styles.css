@@ -1,5 +1,9 @@
 body {
+  background-image: url("images/logo.png");
   background-color: black;
+  background-size: 1000px;
+  background-repeat: no-repeat;
+  background-position: center top;
 }
 
 .header {
@@ -12,8 +16,12 @@ body {
 }
 
 button {
+  font-family: arial;
   padding: 10px 20px;
-  font-size: 20px;
+  font-size: 50px;
+  margin-top: 400px;
+  background-color: #eee;
+  opacity: 80%;
 }
 
 .container {
@@ -34,8 +42,8 @@ button {
   justify-content: center;
   align-items: center;
   margin: auto;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: yellow;
   border-radius: 50%;
   color: black;
@@ -47,8 +55,8 @@ button {
   justify-content: center;
   align-items: center;
   margin: auto;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: blue;
   border-radius: 50%;
   color: white;
