@@ -1,7 +1,9 @@
 body {
-  background-image: url("images/logo.png");
+  background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a0/Mega_Millions_Lottery_logo.svg/1920px-Mega_Millions_Lottery_logo.svg.png"),
+    url("https://scx2.b-cdn.net/gfx/news/hires/2018/milkyway.jpg");
+  background-size: 1100px, auto;
   background-color: black;
-  background-size: 1000px;
+
   background-repeat: no-repeat;
   background-position: center top;
 }
@@ -16,30 +18,43 @@ body {
 }
 
 button {
-  font-family: arial;
+  font-family: nato, arial;
   padding: 10px 20px;
   font-size: 50px;
-  margin-top: 400px;
+  margin-top: 350px;
   background-color: #eee;
   opacity: 80%;
+  border-radius: 10px;
+  border: 2px solid black;
+  /* background-image: linear-gradient(white, black); */
+}
+
+button:hover {
+  opacity: 100%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid #eee;
+  cursor: pointer;
 }
 
 .container {
   display: flex;
-  justify-content: center;
-  margin: 100px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 100px 100px;
 }
 
-.wrapper {
-  display: inline-flex;
-  justify-content: center;
+/* .wrapper {
+  display: flex;
+  justify-content: space-evenly;
   margin: 100px;
-}
+  margin-left: 100px;
+} */
 
-.number {
+.number-bg {
   display: flex;
   text-align: center;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   margin: auto;
   width: 150px;
@@ -48,7 +63,25 @@ button {
   border-radius: 50%;
   color: black;
   font-size: 70px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 1)
+  );
+  opacity: 100%;
+  border: 2px solid white;
+  background: rgba(255, 251, 1, 0.55);
+  box-shadow: 10px 10px 40px 10px black;
 }
+
+.number-bg:hover {
+  transform: scale(1.1);
+}
+
+/* .number {
+  color: black;
+  opacity: 10%;
+} */
 
 .mega {
   display: flex;
@@ -57,13 +90,19 @@ button {
   margin: auto;
   width: 150px;
   height: 150px;
-  background-color: blue;
+  /* background-color: blue; */
   border-radius: 50%;
   color: white;
   font-size: 70px;
+  /* background-image: linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 0.5)
+  ); */
+  /* background: rgba(47, 0, 255, 0.1); */
 }
 
-.space {
+/* .space {
   display: block;
   padding: 100px;
-}
+} */

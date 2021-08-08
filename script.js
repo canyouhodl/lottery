@@ -17,7 +17,7 @@ function generate() {
         }
         if(add) {
             numbers.push(random);
-            container.innerHTML += `<div class="number">${random}</div>`
+            container.innerHTML += `<div class="number-bg"><div style="opacity: 100%" class="number">${random}</div></div>`
         }
         else {
             i--;
@@ -27,8 +27,7 @@ function generate() {
     let mega = Math.floor(Math.random() * 25) + 1;
     numbers.push(mega);
     console.log(numbers);
-    container.innerHTML += `<div class="mega number">${mega}</div>
-                            <div class="space"></div>`
+    container.innerHTML += `<div class="number-bg"><div style="background-color: blue" class="mega number">${mega}</div>`
 
 }
 
