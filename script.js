@@ -1,48 +1,69 @@
 let container = document.querySelector('.container');
 let button = document.querySelector('button');
 let nums = document.querySelectorAll('number');
-    // const wrapper = document.querySelector('.wrapper');
+const list = document.querySelector('.list');
 
-
-function generate() {
+// makes an array for lottery numbers, not including the mega number
+function makeArray() {
     let numbers = [];
-    let html = '';
+
     for (let i = 0; i < 5; i++) {
         let add = true;
-        let random = Math.floor(Math.random() * 70) + 1;
-        for (let j = 0; j < 70; j++) {
-            if (numbers[j] == random) {
-                add = false;
+        let random = Math.floor(Math.random() * 70 + 1);
+        
+            // check for duplicates
+            for (let j = 0; j < 5; j++) {
+                if (numbers[j] == random) {
+                    add = false;
+                }
             }
-        }
+
+        // if no duplicates, add the random number to the array
+        // if duplicate, don't go to next iteration and go back to for loop to generate new number
         if(add) {
             numbers.push(random);
-            container.innerHTML += `<div class="number-bg"><div style="opacity: 100%" class="number">${random}</div></div>`
         }
         else {
             i--;
         }
     }
 
-    let mega = Math.floor(Math.random() * 25) + 1;
-    numbers.push(mega);
-    console.log(numbers);
-    container.innerHTML += `<div class="number-bg"><div style="background-color: blue" class="mega number">${mega}</div>`
+    // sort numbers in array from lowest to highest like the lottery
+    numbers.sort((a,b) => a - b);
 
+    return numbers;
 }
 
+// generates template strings for the five numbers from the array and one mega number
+function generate(numbers) {
+    let html = ``
+
+    // generate template for each number in the array
+    numbers.forEach(number => {
+        html += `<span class="number-bg">${number}</span>`;
+    });
+
+    // generate template for mega number at the end
+    let mega = Math.floor(Math.random() * 25) + 1;
+    html += `<span class="mega">${mega}</span>`;
+
+    // inject HTML template into list
+    list.innerHTML += `<li class="list">${html}</li>`
+}
+
+
+
+let counter = 0;
+
 button.addEventListener('click', ()=> {
+    
+    generate(makeArray());
+    counter++;
 
-    container.innerHTML = `<div class="wrapper" style="background-color: white"></div>`
-
-
-    generate();
-
-})
-
-
-// container.innerHTML += `<div class="mega number">${mega}</div><br>
-//                             <div class="space"></div>`
-// container = document.createElement("div");
-// container.className = "container";
-// document.body.appendChild(container);
+    // displays 5 lottery tickets then clears back to 1
+    if(counter > 5) {
+        list.innerHTML = `<div class="wrapper" style="background-color: white"></div>`
+        generate(makeArray());
+        counter = 1;
+    }
+});
